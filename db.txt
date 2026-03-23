@@ -1,0 +1,8 @@
+CREATE TABLE registration (
+    idNum VARCHAR(20) PRIMARY KEY,
+    campus VARCHAR(50),
+    studFName VARCHAR(50),
+    studLName VARCHAR(50),
+    amountPaid DECIMAL(10,2),
+    attended VARCHAR(5)
+);
