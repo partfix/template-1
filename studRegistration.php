@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
         $sql = "INSERT INTO registration VALUES ('$id','$campus','$fname','$lname','$amount','No')";
 
         if(mysqli_query($conn, $sql)){
-            // 🔥 REDIRECT AFTER INSERT
+            // REDIRECT AFTER INSERT
             header("Location: studRegistration.php?success=1");
             exit();
         } else {
@@ -25,25 +25,27 @@ if(isset($_POST['submit'])){
         }
     }
 }
-?>
 
+?>
 <h2>Student Registration</h2>
 
 <?php
-if(isset($_GET['success'])){
-    echo "Registered Successfully!";
-}
+    //url direction if successs.
+    if(isset($_GET['success'])){  
+        echo "Registered Successfully!";
+    }
 ?>
+
 
 <form method="POST">
     ID: <input type="text" name="id"><br><br>
-   Campus: <select name="campus">
+    Campus: <select name="campus">
     <option value="University of Cebu-Main">University of Cebu-Main</option>
     <option value="University of Cebu-Banilad">University of Cebu-Banilad</option>
     <option value="University of Cebu-LM">University of Cebu-LM</option>
     <option value="University of Cebu-PT">University of Cebu-PT</option>
-  </select>
-  <br><br>
+    </select>
+    <br><br>
     First Name: <input type="text" name="fname"><br><br>
     Last Name: <input type="text" name="lname"><br><br>
     Amount: <input type="text" name="amount"><br><br>
@@ -68,11 +70,10 @@ if(isset($_GET['success'])){
 <?php
 $result = mysqli_query($conn, "SELECT * FROM registration");
 
-while($row = mysqli_fetch_assoc($result)){
-?>
+while($row = mysqli_fetch_assoc($result)){ ?>
 <tr>
     <td><?php echo $row['IdNum']; ?></td>
-    <td><?php echo $row['studFName']." ".$row['studLName']; ?></td>
+    <td><?php echo $row['studFName']. "".$row['studLName']; ?></td>
     <td><?php echo $row['campus']; ?></td>
     <td><?php echo $row['amountPaid']; ?></td>
     <td>
