@@ -8,10 +8,10 @@ if(isset($_POST['submit'])){
     $lname = $_POST['lname'];
     $amount = $_POST['amount'];
 
-    // CHECK if ID already exists
-    $check = mysqli_query($conn, "SELECT * FROM registration WHERE idNum='$id'");
+    // CHECK if ID already exists = true, also sql is not case senstive.
+    $check = mysqli_query($conn, "SELECT * FROM registration WHERE idNum='$id'"); 
 
-    if(mysqli_num_rows($check) > 0){
+    if(mysqli_num_rows($check) > 0){ // mean if it's existing
         echo "Error: ID already registered!";
     } else {
         $sql = "INSERT INTO registration VALUES ('$id','$campus','$fname','$lname','$amount','No')";
