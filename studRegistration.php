@@ -30,10 +30,11 @@ if(isset($_POST['submit'])){
 <h2>Student Registration</h2>
 
 <?php
-    //url direction if successs.
-    if(isset($_GET['success'])){  
-        echo "Registered Successfully!";
-    }
+    //base on the url GET.
+   if(isset($_GET["success"])){
+    //excute if it's true 
+    echo "Registered!";
+   }
 ?>
 
 
