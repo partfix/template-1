@@ -32,19 +32,20 @@ if(isset($_POST['check'])){
 <a href="index.php">Back to Menu</a>
 
 <?php
-$result = mysqli_query($conn, "SELECT * FROM registration");
+$result = mysqli_query($conn, "SELECT * FROM registration ");
 
 echo "<table border='1'>
 <tr>
-<th>ID</th>
-<th>Name</th>
-<th>Campus</th>
-<th>Amount</th>
-<th>Action</th>
-</tr>";
+    <th>ID</th>
+    <th>Name</th>
+    <th>Campus</th>
+    <th>Amount</th>
+    <th>Action</th>
+</tr> ";
 
 while($row = mysqli_fetch_assoc($result)){
-    echo "<tr>
+    echo "
+    <tr>
         <td>".$row['IdNum']."</td>
         <td>".$row['studFName']." ".$row['studLName']."</td>
         <td>".$row['campus']."</td>

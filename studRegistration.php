@@ -78,8 +78,8 @@ while($row = mysqli_fetch_assoc($result)){ ?>
     <td><?php echo $row['campus']; ?></td>
     <td><?php echo $row['amountPaid']; ?></td>
     <td>
-        <a href="edit.php?id=<?php echo $row['IdNum']; ?>">Edit</a>
-        <a href="delete.php?id=<?php echo $row['IdNum']; ?>">Delete</a>
+        <a href="edit.php?id=<?php echo $row["IdNum"]; ?>">Edit</a> 
+        <a href="delete.php?id=<?php echo $row['IdNum']; //delete.php?id={current user} ?>">Delete</a>
     </td>
 </tr>
 <?php } ?>

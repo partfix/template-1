@@ -1,0 +1,61 @@
+TABLE
+
+<?php
+// 1. Run your query
+$result = mysqli_query($conn, "SELECT * FROM your_table");
+
+// 2. Table headers - change these to match your columns
+echo "<table border='1'>
+<tr>
+    <th>Column 1</th>
+    <th>Column 2</th>
+    <th>Column 3</th>
+    <th>Action</th>
+</tr>";
+
+// 3. Loop through each row
+while($row = mysqli_fetch_assoc($result)){
+    echo "<tr>
+        <td>" . $row['column1'] . "</td>
+        <td>" . $row['column2'] . "</td>
+        <td>" . $row['column3'] . "</td>
+        <td>";
+
+            // 4. Optional: condition inside Action column
+            if($row['some_column'] == "some_value"){
+                echo "<a href='action_page.php?id=" . $row['id_column'] . "'>Do Action</a>";
+            } else {
+                echo "Done";
+            }
+
+    echo "</td></tr>";
+}
+
+echo "</table>";
+?>
+
+
+UPDATE 
+
+<?php
+include 'conn.php';
+
+if(isset($_POST['your_button_name'])){
+    $id = $_POST['your_input_name'];
+
+    $check = mysqli_query($conn, "SELECT * FROM your_table WHERE your_id_column='$id'");
+
+    if(mysqli_num_rows($check) == 0){
+        echo "Not Found Message";
+    } else {
+        $row = mysqli_fetch_assoc($check);
+
+        if($row['status_column'] == "done_value"){
+            echo "Already Done Message";
+        } else {
+            mysqli_query($conn, "UPDATE your_table SET status_column='done_value' WHERE your_id_column='$id'");
+            echo "Success Message";
+        }
+    }
+}
+?>
