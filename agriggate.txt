@@ -1,0 +1,50 @@
+Aggrigate
+
+
+
+<?php
+include 'conn.php';
+
+// 1️⃣ Aggregate Query
+$result = mysqli_query($conn, "
+SELECT 
+    column1,
+    COUNT(*) as totalCount,
+    SUM(column2) as totalSum
+FROM tableName
+GROUP BY column1
+");
+
+// 2️⃣ Initialize totals
+$total1 = 0;
+$total2 = 0;
+?>
+
+<!-- 3️⃣ Table Header -->
+<table border="1">
+<tr>
+    <th>Column1</th>
+    <th>Total Count</th>
+    <th>Total Sum</th>
+</tr>
+
+<!-- 4️⃣ Loop through rows -->
+<?php while($row = mysqli_fetch_assoc($result)){ 
+    // accumulate totals
+    $total1 += $row['totalCount'];
+    $total2 += $row['totalSum'];
+?>
+    <tr>
+        <td><?php echo $row['column1']; ?></td>
+        <td><?php echo $row['totalCount']; ?></td>
+        <td><?php echo $row['totalSum']; ?></td>
+    </tr>
+<?php } ?>
+</table>
+
+<!-- 5️⃣ Overall Totals -->
+<h3>OVERALL TOTAL</h3>
+Total Count: <?php echo $total1; ?> <br>
+Total Sum:   <?php echo $total2; ?> <br>
+
+<a href="index.php">Back</a>
