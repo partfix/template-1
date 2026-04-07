@@ -17,7 +17,9 @@ include 'conn.php';
     <a href="attendance.php">Attendance</a><br/>
     <a href="raffle.php">Raffle</a><br/>
     <a href="reportByCampus.php">Report(By Campus)</a><br/>
-    <a href="summary.php">Report(Summary)</a>
+    <a href="summary.php">Report(Summary)</a><br/>
+    <a href="login.php">Login </a><br/>
+    <a href="register.php">Register</a>
 </div>
 
 </html>
