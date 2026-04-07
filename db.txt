@@ -6,3 +6,6 @@ CREATE TABLE registration (
     amountPaid DECIMAL(10,2),
     attended VARCHAR(5)
 );
+
+
+id for number is always INT
